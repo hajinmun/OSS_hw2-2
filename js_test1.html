@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <button id="btn1">눌러보세요</button>
+    <div id="text">기본텍스트</div>
+
+</body>
+
+</html>
+
+<script>
+    function mc() {
+        alert("버튼이 클릭되었습니다!");
+    }
+
+    var btn1 = document.getElementById("btn1");
+    var text = document.getElementById("text");
+
+    btn1.addEventListener("click", function(){text.innerText = "버튼이 클릭되었습니다!";});
+</script>
