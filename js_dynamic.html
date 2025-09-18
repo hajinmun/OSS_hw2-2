@@ -6,23 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        body {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            
+        }
+        
+        input[type=text]{
+                width: 150px;
+                height: 20px;
+            }
+
+        button{
+            height: 25px;
+        }
+
+        .ba{
+            background-color: blue;
+            border: none;
+            color: white;
+        }
+
+        .bd{
+            background-color: green;
+            border: none;
+            color: white;
         }
     </style>
+
+    <script>
+        window.onload = function () {
+            const ba = document.getElementsByClassName("ba")[0];
+            const bd = document.getElementsByClassName("bd")[0];
+            const ip = document.getElementById("ip");
+            const list = document.getElementById("list");
+
+            ba.addEventListener("click", clickba);
+            bd.addEventListener("click", clickbd);
+        }
+
+        function clickba() {
+            var lt = ip.value.split(",");
+
+            var makeli = lt.map(item => '<li>' + item.trim() + '</li>').join('');
+            list.innerHTML = makeli;
+        }
+
+        function clickbd(){
+            list.innerHTML = "";
+        }
+
+
+    </script>
 </head>
 
 <body>
     <h1>Dynamic Web Page</h1>
     <!--window.onload, document.onready-->
-    <form>
-        <div class="input">
-            <input type="text">
-            <button class="b1">추가</button>
-            <button class="b2">삭제</button>
-        </div>
-    </form>
+    <div class="input">
+        <input type="text" id="ip">
+        <button class="ba">추가</button>
+        <button class="bd">삭제</button>
+        <ul id="list">
+
+        </ul>
+    </div>
+
 </body>
 
 </html>
