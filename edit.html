@@ -1,28 +1,95 @@
+</html>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="my.css">
+    <title>나의서재_책수정</title>
 
-    <style>
-        body {
-            background-color: green;
+    <script>
+        function isEmpty(event) {
+            event.preventDefault();
+
+            var title = document.getElementById("title-input").value;
+            var author = document.getElementById("author-input").value;
+            var publisher = document.getElementById("publisher-input").value;
+            var year = document.getElementById("year-input").value;
+
+            if (title.trim() == "") {
+                alert("제목을 입력해 주세요");
+                return false;
+            } else if (author.trim() == "") {
+                alert("작가를 입력해 주세요");
+                return false;
+            } else if (publisher.trim() == "") {
+                alert("출판사를 입력해 주세요");
+                return false;
+            } else if (year.trim() == "") {
+                alert("년도를 입력해 주세요");
+                return false;
+            }
+            alert("게시물을 수정할까요?");
+            return true;
         }
-    </style>
+    </script>
 </head>
 
-<body>
-    <!--임의로 정한 레코드의 모든 항목을 보여주면서 수정하는 폼을 보여주는 Form 페이지
+<!--임의로 정한 레코드의 모든 항목을 보여주면서 수정하는 폼을 보여주는 Form 페이지
 필수 항목에 대해서 Validation Check Javascript 적용할 것
 [수정] 버튼을 누르면 “게시물을 수정할까요?” Confirm 창 띄울 것
 입력할 항목: 제목, 저자, 출판사, 출판년도, 쪽수, 읽은 기간, 감상평, (읽고싶은 책, 읽은 책)
 -->
 
-    <header></header>
+<body class="container mt-3 container-fluid mb-5">
+    <header>
+        <h1>책 수정</h1>
+    </header>
 
-    <main></main>
+    <main>
+        <form onsubmit="return isEmpty(event)">
+            <div class="title-author-row">
+                <div class="mb-3 mt-3 form-group">
+                    <label for="title-input">제목</label>
+                    <input type="text" class="form-control" id="title-input" value="장미의 이름">
+                </div>
+
+                <div class="mb-3 mt-3 form-group">
+                    <label for="author-input">저자</label>
+                    <input type="text" class="form-control" id="author-input" value="움베르토 에코">
+                </div>
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="publisher-input">출판사</label>
+                <input type="text" class="form-control" id="publisher-input" value="열린책들">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="year-input">출판 년도</label>
+                <input type="text" class="form-control" id="year-input" value="2008">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="pages-input">쪽수</label>
+                <input type="text" class="form-control" id="pages-input" value="462">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="start-date">읽은 기간</label><br>
+                <input type="date" id="start-date"> ~ <input type="date" id="end-date">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="review-input">감상평</label>
+                <textarea class="form-control" id="review-input"></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="background-color: #3C9A17; color: white;">수정</button>
+        </form>
+    </main>
 
     <footer></footer>
 </body>
