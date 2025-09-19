@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>나의서재</title>
     <style>
-        img{
-            width: 100px;
+        body {
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        img.img-fluid {
+            max-width: 150px;
+        }
+
+        h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif, Times, serif, 'Arial Narrow', Arial, sans-serif;
         }
     </style>
 </head>
+
 <body>
     <!--읽은 책 관리
     입력할 항목: 제목, 저자, 출판사, 출판년도, 쪽수, 읽은 기간, 감상평, (읽고싶은 책, 읽은 책)
@@ -17,46 +30,60 @@
     책: 
     -->
 
-    <header>
-        <h1>나의 서재</h1>
-        <form>
-            <input type="text">
-            <button>검색</button>
-        </form>
+    <header class="container-fluid mb-5">
+        <div class="row align-items-center">
+            <div class="col-3">
+                <h1>나의 서재</h1>
+            </div>
+
+            <div class="col-6">
+                <form class="p-1 input-group border border-2 rounded-pill h-25">
+                    <input type="text" class="form-control border-0">
+                    <button class="btn border-0"><img src="./img/noun-search-7995700.png" alt="검색" width="30px"></button>
+                </form>
+            </div>
+
+            <div class="col-3">
+                <button class="btn" style="background-color: #223FA5; color: white; height: 50px;">추가</button>
+            </div>
+        </div>
     </header>
 
-    <body>
+    <body class="container pt-5 ">
         <div>
-            <!--<ul>
-                <li>번호</li>
-                <li>제목</li>
-                <li>저자</li>
-                <li>출판사</li>
-                <li>쪽수</li>
-            </ul>-->
-            <ol>
-                <!--책 한개 나타내는 항목-->
-                <li>
-                    <div>
-                        <img src="./img/rose.jpg" alt="표지 대신 장미 사진">
-                    </div>
+            <div class="container-fluid">
+                <ol class="list-group list-group-flush" style="list-style: decimal; padding-left: 1.5rem;">
+                    <!--책 한개 나타내는 항목-->
+                    <li class="list-group-item " style="display: list-item;">
+                        <div class="row align-items-center">
+                            <div class="col-5">
+                                <img class="img-fluid my-4" src="./img/Ilnomedellarosa.jpg" alt="장미의 이름">
+                            </div>
 
-                    <div>
-                        <a>제목</a>
-                        <div>
-                            저자, 출판사, 출판년도
+                            <div class="col-4">
+                                <a>장미의 이름</a>
+                                <div>
+                                    움베르토 에코, 열린책들, 2008
+                                </div>
+                            </div>
+
+                            <div class="col-3">
+                                <button class="btn" style="background-color: #3C9A17; color: white; ">
+                                    수정
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
 
-                
-            </ol>
+                </ol>
+            </div>
         </div>
     </body>
 
     <footer>
         <p>©Hajin Mun</p>
     </footer>
-    
+
 </body>
+
 </html>
